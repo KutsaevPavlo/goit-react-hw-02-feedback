@@ -32,24 +32,28 @@ export class App extends Component {
       this.countTotalFeedback()
     );
     return (
-      <Section title="Please leave the feedback">
-        <FeedbackOptions
-          options={['good', 'neutral', 'bad']}
-          onLeaveFeedback={this.onLeaveFeedback}
-        />
+      <div>
+        <Section title="Please leave the feedback">
+          <FeedbackOptions
+            options={Object.keys(this.state)}
+            onLeaveFeedback={this.onLeaveFeedback}
+          />
+        </Section>
 
         {this.countTotalFeedback() === 0 ? (
-          <Notification />
+          <Notification message="There is no feedback" />
         ) : (
-          <Statistics
-            good={good}
-            neutral={neutral}
-            bad={bad}
-            total={total}
-            positivePercentage={positivePercentage}
-          />
+          <Section title="Statistics">
+            <Statistics
+              good={good}
+              neutral={neutral}
+              bad={bad}
+              total={total}
+              positivePercentage={positivePercentage}
+            />
+          </Section>
         )}
-      </Section>
+      </div>
     );
   }
 }

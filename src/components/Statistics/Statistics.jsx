@@ -10,7 +10,6 @@ export const Statistics = ({
 }) => {
   return (
     <StatisticStyled>
-      <h3>Statistics</h3>
       <div>
         <p>
           Good: <span>{good}</span>
